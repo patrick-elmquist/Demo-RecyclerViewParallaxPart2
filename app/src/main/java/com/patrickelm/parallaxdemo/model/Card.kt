@@ -1,4 +1,4 @@
-package com.patrickelm.textswapanimation.model
+package com.patrickelm.parallaxdemo.model
 
 data class Card(
     val city: String,

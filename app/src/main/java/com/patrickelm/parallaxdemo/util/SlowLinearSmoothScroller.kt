@@ -1,4 +1,4 @@
-package com.patrickelm.textswapanimation.util
+package com.patrickelm.parallaxdemo.util
 
 import android.content.Context
 import android.util.DisplayMetrics

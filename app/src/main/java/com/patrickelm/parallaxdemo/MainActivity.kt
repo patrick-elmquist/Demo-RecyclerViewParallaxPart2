@@ -1,15 +1,15 @@
-package com.patrickelm.textswapanimation
+package com.patrickelm.parallaxdemo
 
 import android.graphics.Rect
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.patrickelm.textswapanimation.databinding.ActivityMainBinding
-import com.patrickelm.textswapanimation.model.Card
-import com.patrickelm.textswapanimation.util.HorizontalSpaceItemDecoration
-import com.patrickelm.textswapanimation.util.SlowScrollingLinearLayoutManager
-import com.patrickelm.textswapanimation.util.SlowScrollingPagerSnapHelper
+import com.patrickelm.parallaxdemo.databinding.ActivityMainBinding
+import com.patrickelm.parallaxdemo.model.Card
+import com.patrickelm.parallaxdemo.util.HorizontalSpaceItemDecoration
+import com.patrickelm.parallaxdemo.util.SlowScrollingLinearLayoutManager
+import com.patrickelm.parallaxdemo.util.SlowScrollingPagerSnapHelper
 
 class MainActivity : AppCompatActivity() {
 

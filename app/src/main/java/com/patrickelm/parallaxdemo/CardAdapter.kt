@@ -1,10 +1,10 @@
-package com.patrickelm.textswapanimation
+package com.patrickelm.parallaxdemo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.patrickelm.textswapanimation.databinding.CardItemBinding
-import com.patrickelm.textswapanimation.model.Card
+import com.patrickelm.parallaxdemo.databinding.CardItemBinding
+import com.patrickelm.parallaxdemo.model.Card
 
 class CardAdapter(private val items: List<Card>) : RecyclerView.Adapter<CardViewHolder>() {
     init {

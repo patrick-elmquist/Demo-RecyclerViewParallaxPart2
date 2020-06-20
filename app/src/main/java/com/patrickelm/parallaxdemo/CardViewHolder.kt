@@ -1,4 +1,4 @@
-package com.patrickelm.textswapanimation
+package com.patrickelm.parallaxdemo
 
 import android.animation.FloatEvaluator
 import android.view.View
@@ -6,8 +6,8 @@ import androidx.core.view.doOnPreDraw
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
-import com.patrickelm.textswapanimation.databinding.CardItemBinding
-import com.patrickelm.textswapanimation.model.Card
+import com.patrickelm.parallaxdemo.databinding.CardItemBinding
+import com.patrickelm.parallaxdemo.model.Card
 import kotlin.math.abs
 
 private const val IMAGE_PARALLAX_FACTOR = 3f
@@ -35,7 +35,7 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
             field = v.coerceIn(-1f, 1f).also { applyParallax(it) }
         }
 
-    fun bind(model: Card) = binding.apply {
+    fun bind(model: Card) = binding.run {
         image.load(model.imageUrl)
         image.doOnPreDraw { img ->
             val parent = (itemView.parent as? View)?.width ?: 0
