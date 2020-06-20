@@ -1,11 +1,6 @@
 package com.patrickelm.parallaxdemo.model
 
-data class Card(
-    val city: String,
-    val message: String,
-    val country: String,
-    val imageUrl: String
-) {
+data class Card(val city: String, val message: String, val country: String, val imageUrl: String) {
     companion object {
         val MOCKED_ITEMS = listOf(
             Card(

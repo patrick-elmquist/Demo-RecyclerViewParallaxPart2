@@ -10,5 +10,5 @@ class HorizontalSpaceItemDecoration(private val spacing: Int) : RecyclerView.Ite
         view: View,
         parent: RecyclerView,
         state: RecyclerView.State
-    ) = outRect.set(spacing / 2, spacing / 2, 0, 0)
+    ) = outRect.set(spacing, spacing, 0, 0)
 }

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="spacing_card">12dp</dimen>
+    <dimen name="spacing_card">6dp</dimen>
+    <!--
+        We want 24dp padding but have to take the card spacing into account.
+        18dp + 6dp spacing from first/last card = 24dp padding total
+     -->
+    <dimen name="list_padding_horizontal">18dp</dimen>
 </resources>

@@ -32,10 +32,5 @@ class SlowScrollingLinearLayoutManager(
         recyclerView: RecyclerView?,
         state: RecyclerView.State?,
         position: Int
-    ) = startSmoothScroll(
-        SlowLinearSmoothScroller(
-            context,
-            position
-        )
-    )
+    ) = startSmoothScroll(SlowLinearSmoothScroller(context, position))
 }

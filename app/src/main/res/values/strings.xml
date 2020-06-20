@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Parallax Demo</string>
+    <string name="credits_unsplash">Images from unsplash.com</string>
 </resources>

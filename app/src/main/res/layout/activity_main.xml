@@ -1,39 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="272dp"
-        android:clipToPadding="false"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
         android:clipChildren="false"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        />
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/list_padding_horizontal"
+        android:paddingEnd="@dimen/list_padding_horizontal"
+        app:layout_constraintDimensionRatio="H,16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_2"
         android:layout_width="match_parent"
-        android:layout_height="272dp"
-        android:clipToPadding="false"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         android:clipChildren="false"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        />
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/list_padding_horizontal"
+        android:paddingEnd="@dimen/list_padding_horizontal"
+        app:layout_constraintDimensionRatio="H,16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        android:text="@string/credits_unsplash"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_2"
+        app:layout_constraintVertical_bias="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

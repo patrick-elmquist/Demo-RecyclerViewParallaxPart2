@@ -12,15 +12,15 @@ import com.patrickelm.parallaxdemo.util.SlowScrollingLinearLayoutManager
 import com.patrickelm.parallaxdemo.util.SlowScrollingPagerSnapHelper
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
     private val viewBounds = Rect()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(root) }
-        binding.recyclerView.init(withParallax = true)
-        binding.recyclerView2.init(withParallax = false)
+        ActivityMainBinding.inflate(layoutInflater).apply {
+            setContentView(root)
+            recyclerView.init(withParallax = true)
+            recyclerView2.init(withParallax = false)
+        }
     }
 
     private fun RecyclerView.init(withParallax: Boolean) {
@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         addItemDecoration(HorizontalSpaceItemDecoration(spacing))
         if (withParallax) setupParallax()
     }
-
 
     private fun RecyclerView.setupParallax() {
         addOnScrollListener(object : RecyclerView.OnScrollListener() {
