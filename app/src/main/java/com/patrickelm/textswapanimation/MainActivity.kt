@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         SlowScrollingPagerSnapHelper(context).attachToRecyclerView(this)
         val spacing = resources.getDimensionPixelOffset(R.dimen.spacing_card)
         addItemDecoration(HorizontalSpaceItemDecoration(spacing))
-
         if (withParallax) setupParallax()
     }
 

@@ -23,7 +23,7 @@ private const val MESSAGE_RIGHT_PARALLAX_FACTOR = 1.5f
 private const val EXTRA_RIGHT_PARALLAX_FACTOR = 1.0f
 
 class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHolder(binding.root) {
-    private val evaluator = FloatEvaluator()
+    private val linearEvaluator = FloatEvaluator()
     private val linearToSlowInterpolator = LinearOutSlowInInterpolator()
 
     /**
@@ -35,7 +35,7 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
             field = v.coerceIn(-1f, 1f).also { applyParallax(it) }
         }
 
-    fun bind(model: Card) = binding.run {
+    fun bind(model: Card) = binding.apply {
         image.load(model.imageUrl)
         image.doOnPreDraw { img ->
             val parent = (itemView.parent as? View)?.width ?: 0
@@ -73,7 +73,7 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
         }
 
         image.translationX = -(absoluteValue * direction * width / IMAGE_PARALLAX_FACTOR)
-        image.alpha = evaluator.evaluate(absoluteValue, IMAGE_MAX_ALPHA, IMAGE_MIN_ALPHA)
+        image.alpha = linearEvaluator.evaluate(absoluteValue, IMAGE_MAX_ALPHA, IMAGE_MIN_ALPHA)
     }
 }
 
