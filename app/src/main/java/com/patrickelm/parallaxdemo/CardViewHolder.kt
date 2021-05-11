@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.view.doOnPreDraw
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import com.patrickelm.parallaxdemo.databinding.CardItemBinding
 import com.patrickelm.parallaxdemo.model.Card
 import kotlin.math.abs
