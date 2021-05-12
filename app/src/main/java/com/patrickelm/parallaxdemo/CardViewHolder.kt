@@ -76,4 +76,3 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
         image.alpha = linearEvaluator.evaluate(absoluteValue, IMAGE_MAX_ALPHA, IMAGE_MIN_ALPHA)
     }
 }
-

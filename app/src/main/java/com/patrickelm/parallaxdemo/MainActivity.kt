@@ -26,9 +26,12 @@ class MainActivity : Activity() {
     private fun RecyclerView.init(withParallax: Boolean) {
         adapter = CardAdapter(Card.MOCKED_ITEMS)
         layoutManager = SlowScrollingLinearLayoutManager(context, LinearLayoutManager.HORIZONTAL)
+
         SlowScrollingPagerSnapHelper(context).attachToRecyclerView(this)
+
         val spacing = resources.getDimensionPixelOffset(R.dimen.spacing_card)
         addItemDecoration(HorizontalSpaceItemDecoration(spacing))
+
         if (withParallax) setupParallax()
     }
 
@@ -37,7 +40,7 @@ class MainActivity : Activity() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val layoutManager = layoutManager as? LinearLayoutManager ?: return
                 val scrollOffset = recyclerView.computeHorizontalScrollOffset()
-                layoutManager.visibleIndices.forEach { position ->
+                layoutManager.visiblePositions.forEach { position ->
                     val viewHolder = findViewHolderForAdapterPosition(position) as? CardViewHolder
                             ?: return@forEach
 
@@ -56,7 +59,6 @@ class MainActivity : Activity() {
         })
     }
 
-    private val LinearLayoutManager.visibleIndices: IntRange
+    private val LinearLayoutManager.visiblePositions: IntRange
         get() = (findFirstVisibleItemPosition()..findLastVisibleItemPosition())
 }
-
