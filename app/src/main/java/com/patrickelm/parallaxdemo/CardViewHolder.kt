@@ -10,14 +10,19 @@ import com.patrickelm.parallaxdemo.databinding.CardItemBinding
 import com.patrickelm.parallaxdemo.model.Card
 import kotlin.math.abs
 
-private const val IMAGE_PARALLAX_FACTOR = 3f
-private const val IMAGE_MIN_ALPHA = 0.85f
+// how much of the image to scroll
+private const val IMAGE_PARALLAX_FACTOR = 1f / 3f
+
+// how much the image should fade in and out
+private const val IMAGE_MIN_ALPHA = 0.80f
 private const val IMAGE_MAX_ALPHA = 1.0f
 
+// how the text should move, coming from the left
 private const val TITLE_LEFT_PARALLAX_FACTOR = 0.35f
 private const val MESSAGE_LEFT_PARALLAX_FACTOR = 0.2f
 private const val EXTRA_LEFT_PARALLAX_FACTOR = 0.35f
 
+// how the text should move, coming from the right
 private const val TITLE_RIGHT_PARALLAX_FACTOR = 0.3f
 private const val MESSAGE_RIGHT_PARALLAX_FACTOR = 1.5f
 private const val EXTRA_RIGHT_PARALLAX_FACTOR = 1.0f
@@ -35,12 +40,12 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
             field = v.coerceIn(-1f, 1f).also { applyParallax(it) }
         }
 
-    fun bind(model: Card) = binding.run {
+    fun bind(model: Card) = binding.apply {
         image.load(model.imageUrl)
         image.doOnPreDraw { img ->
             val parent = (itemView.parent as? View)?.width ?: 0
             val width = img.width.toFloat()
-            val scale = (parent - (1f - 1f / IMAGE_PARALLAX_FACTOR) * (parent - width) / 2f) / width
+            val scale = (parent - (1f - IMAGE_PARALLAX_FACTOR) * (parent - width) / 2f) / width
             // Make the image the same width as the parent
             // We need the image to scale for the parallax but we want to scale it as little
             // as possible so that as much of it is visible within the clip bounds
@@ -52,7 +57,7 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
         extra.text = model.country
     }
 
-    private fun applyParallax(offset: Float) = binding.run {
+    private fun applyParallax(offset: Float) = binding.apply {
         val direction = if (offset < 0f) -1f else 1f
         val absoluteValue = abs(offset)
         val width = card.width
@@ -72,7 +77,7 @@ class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHo
             extra.translationX = fraction * width * EXTRA_RIGHT_PARALLAX_FACTOR
         }
 
-        image.translationX = -(absoluteValue * direction * width / IMAGE_PARALLAX_FACTOR)
+        image.translationX = -(absoluteValue * direction * width * IMAGE_PARALLAX_FACTOR)
         image.alpha = linearEvaluator.evaluate(absoluteValue, IMAGE_MAX_ALPHA, IMAGE_MIN_ALPHA)
     }
 }

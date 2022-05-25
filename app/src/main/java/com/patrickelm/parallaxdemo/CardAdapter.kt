@@ -16,7 +16,9 @@ class CardAdapter(private val items: List<Card>) : RecyclerView.Adapter<CardView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CardViewHolder(CardItemBinding.inflate(parent.layoutInflater, parent, false))
 
-    override fun onBindViewHolder(holder: CardViewHolder, pos: Int) = holder.bind(items[pos])
+    override fun onBindViewHolder(holder: CardViewHolder, pos: Int) {
+        holder.bind(items[pos])
+    }
 }
 
 private val ViewGroup.layoutInflater: LayoutInflater get() = LayoutInflater.from(context)

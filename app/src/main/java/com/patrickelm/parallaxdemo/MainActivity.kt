@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.patrickelm.parallaxdemo.databinding.ActivityMainBinding
 import com.patrickelm.parallaxdemo.model.Card
 import com.patrickelm.parallaxdemo.util.HorizontalSpaceItemDecoration
+import com.patrickelm.parallaxdemo.util.SCROLL_SLOW_FACTOR
 import com.patrickelm.parallaxdemo.util.SlowScrollingLinearLayoutManager
 import com.patrickelm.parallaxdemo.util.SlowScrollingPagerSnapHelper
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlin.math.floor
 
 class MainActivity : AppCompatActivity() {
     private val viewBounds = Rect()
@@ -23,15 +24,15 @@ class MainActivity : AppCompatActivity() {
             setContentView(root)
             recyclerView1.init(withParallax = true)
             recyclerView2.init(withParallax = false)
-            lifecycleScope.launch {
-                val order = listOf(0, 1, 2, 1, 0, 2, 0)
+            lifecycleScope.launchWhenResumed {
+                val order = listOf(0, 1, 2, 1, 0)
                 var i = 0
                 while (true) {
                     val position = order[i % order.size]
                     recyclerView1.smoothScrollToPosition(position)
                     recyclerView2.smoothScrollToPosition(position)
                     i++
-                    delay(1500)
+                    delay(floor(300 * SCROLL_SLOW_FACTOR).toLong())
                 }
             }
         }

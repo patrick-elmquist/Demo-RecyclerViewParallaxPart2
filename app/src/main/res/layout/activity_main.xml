@@ -8,94 +8,36 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="24dp"
-        android:paddingHorizontal="4dp"
-        android:text="@string/with_parallax"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:textColor="?android:textColorSecondary"
-        android:fontFamily="sans-serif-light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginVertical="8dp"
+        android:paddingHorizontal="@dimen/list_padding_horizontal"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingStart="@dimen/list_padding_horizontal"
-        android:paddingEnd="@dimen/list_padding_horizontal"
+        android:overScrollMode="never"
         app:layout_constraintDimensionRatio="H,16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_1"
+        app:layout_constraintTop_toTopOf="parent"
         tools:background="#33000000"
-        />
-
-    <TextView
-        android:id="@+id/image_credit_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/credits_unsplash"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:textSize="10sp"
-        android:fontFamily="sans-serif-light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_1"
-        />
-
-    <TextView
-        android:id="@+id/title_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="24dp"
-        android:paddingHorizontal="4dp"
-        android:text="@string/without_parallax"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:textColor="?android:textColorSecondary"
-        android:fontFamily="sans-serif-light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_credit_1"
         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginVertical="8dp"
+        android:paddingHorizontal="@dimen/list_padding_horizontal"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingStart="@dimen/list_padding_horizontal"
-        android:paddingEnd="@dimen/list_padding_horizontal"
+        android:overScrollMode="never"
         app:layout_constraintDimensionRatio="H,16:9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_2"
-        app:layout_constraintBottom_toTopOf="@id/recycler_view_2"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_1"
         tools:background="#33000000"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/credits_unsplash"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:textSize="10sp"
-        android:fontFamily="sans-serif-light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_2"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

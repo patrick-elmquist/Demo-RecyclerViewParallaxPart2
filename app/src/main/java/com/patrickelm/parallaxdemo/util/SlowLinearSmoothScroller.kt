@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 
-private const val SCROLL_SLOW_FACTOR = 3.5f
+const val SCROLL_SLOW_FACTOR = 10f
 class SlowLinearSmoothScroller(
     context: Context,
     target: Int = RecyclerView.NO_POSITION

@@ -6,4 +6,5 @@
         18dp + 6dp spacing from first/last card = 24dp padding total
      -->
     <dimen name="list_padding_horizontal">18dp</dimen>
+    <dimen name="list_padding_vertical">12dp</dimen>
 </resources>
