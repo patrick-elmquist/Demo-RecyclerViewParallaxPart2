@@ -12,7 +12,6 @@ import kotlin.math.abs
 
 // how much of the image to scroll
 private const val IMAGE_PARALLAX_FACTOR = 1f / 3f
-
 // how much the image should fade in and out
 private const val IMAGE_MIN_ALPHA = 0.80f
 private const val IMAGE_MAX_ALPHA = 1.0f
@@ -27,17 +26,22 @@ private const val TITLE_RIGHT_PARALLAX_FACTOR = 0.3f
 private const val MESSAGE_RIGHT_PARALLAX_FACTOR = 1.5f
 private const val EXTRA_RIGHT_PARALLAX_FACTOR = 1.0f
 
-class CardViewHolder(private val binding: CardItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class CardViewHolder(
+    private val binding: CardItemBinding
+) : RecyclerView.ViewHolder(binding.root) {
     private val linearEvaluator = FloatEvaluator()
     private val linearToSlowInterpolator = LinearOutSlowInInterpolator()
 
     /**
-     * Scroll offset from when the card is in the center of the view
+     * Scroll offset from when the card is in the center of the view.
+     * Should be a value between -1 <= x <= 1
      */
     var parallaxOffset: Float = 0f
-        set(v) {
+        set(value) {
             // Make sure that the value is limited to the range of [-1,1]
-            field = v.coerceIn(-1f, 1f).also { applyParallax(it) }
+            field = value.coerceIn(-1f, 1f)
+            // Adjust the parallax based on the new value
+            applyParallax(field)
         }
 
     fun bind(model: Card) = binding.apply {

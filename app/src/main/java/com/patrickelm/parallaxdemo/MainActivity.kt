@@ -16,7 +16,6 @@ import kotlinx.coroutines.delay
 import kotlin.math.floor
 
 class MainActivity : AppCompatActivity() {
-    private val viewBounds = Rect()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun RecyclerView.setupParallax() {
+        val viewBounds = Rect()
         addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val layoutManager = layoutManager as? LinearLayoutManager ?: return
